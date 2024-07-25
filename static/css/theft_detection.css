@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    background-color: #1d2c48;
+}
+
+
+h1{
+    text-align: center;
+    background-color: #f5f5f7;
+    color: #1d2c48;
+    padding: 15px;
+    font-size: 50px;
+    font-family:'Times New Roman', Times, serif
+
+}
+
+.form{
+    margin-top: 150px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    box-shadow: 15px 18px 19px 1px rgba(0, 0, 0, 0.75);
+    background-color: #f5f5f7;
+
+    position: relative;
+    animation-name: example;
+    animation-duration: 3s;    
+}
+
+@keyframes example {
+    0%   { left:0px; top:200px}
+    
+    75% { left:0px; top:0px;}
+  } 
+.form label{
+    padding: 7px 30px;
+    font-size: 30px;
+}
+
+.form input{
+    height:40px;
+    border-radius: 5px;
+}
+
+button{
+    padding: 15px 35px;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    border-radius: 30px;
+}

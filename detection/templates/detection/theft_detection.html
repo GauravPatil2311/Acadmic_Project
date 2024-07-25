@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/theft_detection.css' %}">
+    <title>Stolen Vehicle Detection</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="heading">
+            <h1>Stolen Vehicle Detection</h1>
+        </div>
+        <div class="form">
+            <form method="POST" action="{% url 'home' %}" accept-charset="utf-8" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="Rcnumber">Enter number plate</label>
+                <input type="text" id="Rcnumber" name="Rcnumber"><br><br>
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="text-center">
+                <br>
+                
+                {% if message == 0 %}
+                    <p>No match found. Please check the RC Number again.</p>
+                {% endif %}
+
+                {% if vehicle %}
+                    <p>Registration Number = {{vehicle.registration_no}}</p>
+                    <p>Model= {{vehicle.model}}</p>
+                    <p>Color = {{vehicle.color}}</p>
+                    <p>Chasis Number = {{vehicle.chasis_no}}</p>
+                    <p>Engine Number = {{vehicle.engine_no}}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <title>Admin Pannel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          overflow: hidden;
+        }
+    
+        #notification-sidebar {
+          position: fixed;
+          top: 68px;
+          right: -300px; /* Set the initial position outside the viewport */
+          width: 300px;
+          height: 90%;
+          background-color: #1f1a20;
+          color: #fff;
+          overflow-y: auto;
+          transition: right 0.3s ease;
+        }
+    
+        #notification-sidebar.open {
+          right: 0;
+        }
+    
+        #notification-content {
+          padding: 20px;
+        }
+    
+        #notification-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+    
+        .notification {
+          padding: 10px;
+          border-bottom: 1px solid #555;
+        }
+      </style>
+</head>
+<body style="overflow-y: auto;">
+  <header class="text-gray-600 bg-gray-900 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <i class="fa-solid fa-magnifying-glass fa-2x text-gray-100"></i>
+        <span class="ml-3 text-xl font-bold text-gray-100">Vehicle Detector</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center text-gray-300 font-bold">
+        <a href="C1.html" class="mr-5 hover:text-white">Home</a>
+        <a href="admin.html" class="mr-5 hover:text-white">Admin Pannel</a>
+        <a href="user.html" class="mr-5 hover:text-white">User Pannel</a>
+        <a href="Help.html" class="mr-5 hover:text-white">Help</a>
+      </nav>
+    
+      <a href="know.html" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+        Know More
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </header>
+  <hr>
+  <section class="text-gray-600 body-font" >
+    <br>
+    <br>
+    <section class="text-gray-600 body-font">
+      <div class="flex flex-col text-center w-full mb-12">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Stolen Vehicle Report</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please provide information about the stolen vehicle.</p>
+    </div>
+    <form class="flex lg:w-2/3 w-full sm:flex-col flex-col mx-auto px-8 sm:space-x-4 sm:space-y-4 space-y-4 sm:px-0 items-end">
+        <div class="relative flex-grow w-full">
+            <label for="vehicle-owner-name" class="leading-7 text-sm text-gray-600">Vehicle Owner's Name</label>
+            <input type="text" id="vehicle-owner-name" name="vehicle-owner-name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+        </div>
+        <div class="relative flex-grow w-full">
+            <label for="vehicle-number" class="leading-7 text-sm text-gray-600">Vehicle Number</label>
+            <input type="text" id="vehicle-number" name="vehicle-number" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+        </div>
+        <div class="relative flex-grow w-full">
+            <label for="contact-number" class="leading-7 text-sm text-gray-600">Contact Number</label>
+            <input type="tel" id="contact-number" name="contact-number" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus-border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+        </div>
+        <div class="relative flex-grow w-full">
+            <label for="address" class="leading-7 text-sm text-gray-600">Address</label>
+            <input type="text" id="address" name="address" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus-ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+        </div>
+        <div class="relative flex-grow w-full">
+            <label for="last-parked-location" class="leading-7 text-sm text-gray-600">Last Parked Location</label>
+            <input type="text" id="last-parked-location" name="last-parked-location" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus-border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+        </div>
+      <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" id="submit-button">Report Stolen Vehicle</button>
+      <button class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg" onclick="toggleNotificationSidebar()">Notifications</button>
+    </form>
+    <div id="notification-sidebar">
+      <div id="notification-content">
+        <h2>Notifications</h2>
+        <ul id="notification-list">
+          <!-- Notifications will be dynamically added here -->
+        </ul>
+        <button class="text-white bg-blue-500 border-0 py-2 px-4 mt-4 focus:outline-none hover:bg-blue-600 rounded text-sm" onclick="refreshSidebar()">Refresh</button>
+      </div>
+    </div>
+    
+    <script>
+      document.getElementById('submit-button').addEventListener('click', function () {
+                  if (!validateForm()) {
+                      return false;
+                  }
+          
+                  var confirmAdd = confirm("Are you sure to add the vehicle to the database?");
+                  if (confirmAdd) {
+                      alert("Vehicle added to the database successfully.");
+                  }
+              });
+          
+              function validateForm() {
+                  var vehicleOwnerName = document.getElementById('vehicle-owner-name').value;
+                  var vehicleNumber = document.getElementById('vehicle-number').value;
+                  var contactNumber = document.getElementById('contact-number').value;
+                  var address = document.getElementById('address').value;
+                  var lastParkedLocation = document.getElementById('last-parked-location').value;
+          
+                  // Check for empty inputs
+                  if (!vehicleOwnerName || !vehicleNumber || !contactNumber || !address || !lastParkedLocation) {
+                      alert("All fields must be filled out.");
+                      return false;
+                  }
+          
+                  // Vehicle number pattern check
+                  var vehicleNumberPattern = /^([A-Za-z]{2}\d{2}[A-Za-z]{2}\d{4})|([A-Za-z]{2}\d{2}[A-Za-z]\d{4})$/;
+                  if (!vehicleNumberPattern.test(vehicleNumber)) {
+                   alert("Enter a valid vehicle number (e.g., MH12BR1234 or MH12V1234)");
+                      return false;
+                  }
+          
+                  // Contact number pattern and length check
+                  var contactNumberPattern = /^[0-9]{10}$/;
+                  if (!contactNumberPattern.test(contactNumber)) {
+                      alert("Enter a valid 10-digit mobile number");
+                      return false;
+                  }
+          
+                  return true;
+              }
+      function toggleSidebar() {
+        const sidebar = document.getElementById('notification-sidebar');
+        sidebar.classList.toggle('open');
+      }
+
+      function toggleNotificationSidebar() {
+        const sidebar = document.getElementById('notification-sidebar');
+        sidebar.classList.toggle('open');
+      }
+
+      function refreshSidebar() {
+        const notificationList = document.getElementById('notification-list');
+        notificationList.innerHTML = ''; // Clear existing notifications
+
+        // Get data from the form
+        const vehicleNumber = document.getElementById('vehicle-number').value;
+        const vehicleOwnerName = document.getElementById('vehicle-owner-name').value;
+
+        // Create a notification with dynamic data
+        const notification = document.createElement('li');
+        notification.className = 'notification';
+        notification.innerHTML = `Vehicle reported: ${vehicleNumber}<br>Owner: ${vehicleOwnerName}<br>Location: Near Rasisoni College`;
+        notificationList.appendChild(notification);
+
+        // Open the notification sidebar
+        toggleNotificationSidebar();
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const notificationList = document.getElementById('notification-list');
+
+        for (let i = 1; i <= 10; i++) {
+          const notification = document.createElement('li');
+          notification.className = 'notification';
+          notification.textContent = `Notification ${i}`;
+          notificationList.appendChild(notification);
+        }
+      });
+    </script>
+  </section>
+  <hr>
+  <footer class="text-gray-700 body-font bg-gray-800">
+    <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <i class="fa-solid fa-magnifying-glass fa-2x text-gray-100"></i>
+        <span class="ml-3 text-xl text-gray-300">Vehicle Detector</span>
+      </a>
+      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 vehicledetector —
+        <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@SmartTrackings</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a class="text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

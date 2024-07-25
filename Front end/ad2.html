@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <!-- Your CSS and other head content goes here -->
+    </head>
+    <body>
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-col text-center w-full mb-12">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Stolen Vehicle Report</h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please provide information about the stolen vehicle.</p>
+                </div>
+                <form class="flex lg:w-2/3 w-full sm:flex-col flex-col mx-auto px-8 sm:space-x-4 sm:space-y-4 space-y-4 sm:px-0 items-end">
+                    <div class="relative flex-grow w-full">
+                        <label for="vehicle-owner-name" class="leading-7 text-sm text-gray-600">Vehicle Owner's Name</label>
+                        <input type="text" id="vehicle-owner-name" name="vehicle-owner-name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative flex-grow w-full">
+                        <label for="vehicle-number" class="leading-7 text-sm text-gray-600">Vehicle Number</label>
+                        <input type="text" id="vehicle-number" name="vehicle-number" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative flex-grow w-full">
+                        <label for="contact-number" class="leading-7 text-sm text-gray-600">Contact Number</label>
+                        <input type="text" id="contact-number" name="contact-number" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus-border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative flex-grow w-full">
+                        <label for="address" class="leading-7 text-sm text-gray-600">Address</label>
+                        <input type="text" id="address" name="address" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus-ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover-bg-indigo-600 rounded text-lg" id="submit-button">Report Stolen Vehicle</button>
+                </form>
+            </div>
+    
+            <script>
+                document.getElementById('submit-button').addEventListener('click', function () {
+                    var confirmAdd = confirm("Are you sure to add the vehicle to the database?");
+                    if (confirmAdd) {
+                        alert("Vehicle added to database successfully.");
+                    }
+                });
+            </script>
+        </section>
+    </body>
+    </html>
+    
+      
+
+
+
+</body>
+</html>
